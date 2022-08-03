@@ -5,17 +5,21 @@
         <feature>jsonb-2.0</feature>
         <feature>cdi-3.0</feature>
         <feature>mpMetrics-4.0</feature>
+        <feature>mpHealth-4.0</feature>
         <feature>mpConfig-3.0</feature>
     </featureManager>
 
     <variable name="default.http.port" defaultValue="9080"/>
     <variable name="default.https.port" defaultValue="9443"/>
 
-    <webApplication location="guide-getting-started.war" contextRoot="/" />
+    <webApplication location="guide-getting-started.war" contextRoot="/dev" />
     
     <mpMetrics authentication="false"/>
+    
+    <logging traceSpecification="com.ibm.ws.microprofile.health.*=all" />
 
-    <httpEndpoint host="*" httpPort="${default.http.port}"
+
+    <httpEndpoint host="*" httpPort="${default.http.port}" 
         httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
 
     <variable name="io_openliberty_guides_system_inMaintenance" value="false"/>
